@@ -5,6 +5,7 @@ import Home from "../HomeLayout/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddItems from "../pages/AddItems";
+import LostAndFound from "../pages/LostAndFound";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path:'/addItems',
                 element:<AddItems></AddItems>
+            },
+            {
+                path:'/allItems',
+                element:<LostAndFound></LostAndFound>
             },
 
            

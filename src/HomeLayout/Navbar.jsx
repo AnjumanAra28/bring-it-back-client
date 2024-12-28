@@ -23,7 +23,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "bg-cyan-600 text-white" : ""
           }
-          to={"/lostAndFound"}
+          to={"/allItems"}
         >
           Lost & Found Items
         </NavLink>
