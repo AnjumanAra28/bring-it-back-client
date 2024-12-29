@@ -45,7 +45,6 @@ const ItemDetails = () => {
       },
       status: "recovered",
     };
-    console.log(formData);
 
     // handle modal form data
     try {

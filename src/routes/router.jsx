@@ -7,6 +7,9 @@ import Register from "../pages/Register";
 import AddItems from "../pages/AddItems";
 import LostAndFound from "../pages/LostAndFound";
 import ItemDetails from "../pages/ItemDetails";
+import MyItems from "../pages/MyItems";
+import UpdateItem from "../pages/UpdateItem";
+import RecoveredItems from "../pages/RecoveredItems";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +41,18 @@ const router = createBrowserRouter([
                 path:'/items/:id',
                 element:<ItemDetails></ItemDetails>
             },
-
-           
+            {
+                path:'/myItems/:email',
+                element:<MyItems></MyItems>
+            },      
+            {
+                path:'/updateItem/:id',
+                element:<UpdateItem></UpdateItem>
+            },      
+            {
+                path:'/recoveredItems',
+                element:<RecoveredItems></RecoveredItems>
+            },      
         ]
     }
 ])
