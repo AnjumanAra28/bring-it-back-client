@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddItems from "../pages/AddItems";
 import LostAndFound from "../pages/LostAndFound";
+import ItemDetails from "../pages/ItemDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path:'/allItems',
                 element:<LostAndFound></LostAndFound>
+            },
+            {
+                path:'/items/:id',
+                element:<ItemDetails></ItemDetails>
             },
 
            
