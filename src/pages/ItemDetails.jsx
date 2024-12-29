@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Modal from "react-modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 Modal.setAppElement("#root");
 
@@ -20,6 +21,7 @@ const ItemDetails = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  //   fetch item by id
   const fetchItem = async () => {
     const { data } = await axios.get(`http://localhost:5000/items/${id}`);
     setItem(data);
@@ -29,23 +31,35 @@ const ItemDetails = () => {
     fetchItem();
   }, [id]);
 
-  const handleSubmit = (e) => {
+  //   handle modal form
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = {
-      recoveredDate,
+      itemId: item._id,
       recoveredLocation,
-      recoveredBy : {
-         name: user.displayName,
-         email:user.email,
+      date: recoveredDate.toISOString(),
+      recoveredBy: {
+        name: user.displayName,
+        email: user.email,
       },
-      status:'recovered'
+      status: "recovered",
     };
     console.log(formData);
 
-    // Perform API call to save the data
-    // axios.post('your-api-endpoint', formData).then(() => { ... })
+    // handle modal form data
+    try {
+      await axios.post(`http://localhost:5000/recoveredItem`, formData);
+
+      // Reset the form
+      Swal.fire("Item added successfully!");
+    } catch (error) {
+      console.error(error);
+      Swal.fire("Failed to add the item.");
+    }
 
     closeModal();
+    fetchItem()
   };
 
   return (
@@ -78,14 +92,26 @@ const ItemDetails = () => {
               <span className="font-semibold">Description :</span>{" "}
               {item?.description}
             </p>
-
+  
+            {/* showing a message conditionally */}
+            {item?.status === "recovered" ? (
+              <p className="text-cyan-600 font-bold text-xl">
+                This item has already been recovered.
+              </p>
+            ) : (
+              ""
+            )}
             {/* conditional button */}
+
             <button
               onClick={openModal}
-              className="btn bg-cyan-600 text-white mt-3"
+              className={`btn bg-cyan-600 text-white mt-3 ${
+                item?.status === "recovered" ? "btn-disabled" : ""
+              }`}
             >
               {item?.postType === "Lost" ? "Found This!" : "This is Mine!"}
             </button>
+
           </div>
         </div>
       </div>
