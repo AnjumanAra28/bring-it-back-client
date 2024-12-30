@@ -4,13 +4,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { CiEdit } from "react-icons/ci";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyItems = () => {
-  const { user , loading,setLoading } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
   const [myItems, setMyItems] = useState([]);
 
   const fetchMyItems = async () => {
-    setLoading(true)
+    setLoading(true);
     const { data } = await axios.get(
       `http://localhost:5000/allItems/${user?.email}`
     );
@@ -19,7 +20,7 @@ const MyItems = () => {
 
   useEffect(() => {
     fetchMyItems();
-    setLoading(false)
+    setLoading(false);
   }, [user?.email]);
 
   // delete item
@@ -55,6 +56,15 @@ const MyItems = () => {
 
   return (
     <div className="w-full mx-3 lg:w-10/12  lg:mx-auto">
+      <Helmet>
+        <title>My Items - Bring It Back</title>
+        <meta
+          name="description"
+          content="Welcome to the my items Page of My Website"
+        />
+        <meta name="keywords" content="React, Helmet, SEO, Example" />
+      </Helmet>
+
       <div className="overflow-x-auto my-10">
         <table className="table">
           {/* head */}
@@ -99,4 +109,3 @@ const MyItems = () => {
 };
 
 export default MyItems;
-

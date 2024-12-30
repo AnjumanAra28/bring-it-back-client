@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { motion } from "framer-motion";
+import { div } from "motion/react-client";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -66,57 +68,78 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to={"/"} className="btn btn-ghost text-xl text-cyan-600">
-          Bring It Back
-        </Link>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Link to={"/"} className="btn btn-ghost text-2xl text-cyan-600">
+            Bring It Back
+          </Link>
+        </motion.div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         {user ? (
-        <div className="flex justify-center items-center gap-2">
-          <div className="dropdown dropdown-end z-50">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
-              data-tip={user.displayName}
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="User Avatar"
-                  src={user.photoURL}
-                />
+          <div className="flex justify-center items-center gap-2">
+            <div className="dropdown dropdown-end z-50">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
+                data-tip={user.displayName}
+              >
+                <div className="w-10 rounded-full">
+                  <img alt="User Avatar" src={user.photoURL} />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <Link to={"/allItems"}>Lost & Found Items</Link>
+                </li>
+                <li>
+                  <Link to={"/recoveredItems"}>All Recovered Items</Link>
+                </li>
+                <li>
+                  <Link to={`/myItems/${user?.email}`}>Manage My Items</Link>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              onClick={logOut}
+              className="btn btn-sm bg-cyan-600 text-white"
             >
-              <li>
-                <Link to={"/allItems"}>Lost & Found Items</Link>
-              </li>
-              <li>
-                <Link to={"/recoveredItems"}>All Recovered Items</Link>
-              </li>
-              <li>
-                <Link to={`/myItems/${user?.email}`}>Manage My Items</Link>
-              </li>
-            </ul>
+              Logout
+            </motion.button>
           </div>
-             <button
-             onClick={logOut}
-             className="btn btn-sm bg-cyan-600 text-white"
-           >
-             Logout
-           </button>
-        </div>
         ) : (
           // Login Button
-          <Link to="/login" className="btn bg-cyan-600 text-white mr-2">
-            Login
-          </Link>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            <Link to="/login" className="btn bg-cyan-600 text-white mr-2">
+              Login
+            </Link>
+          </motion.div>
         )}
       </div>
     </div>

@@ -6,12 +6,13 @@ import Modal from "react-modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 Modal.setAppElement("#root");
 
 const ItemDetails = () => {
   const { id } = useParams();
-  const { user,loading,setLoading } = useContext(AuthContext);
+  const { user, loading, setLoading } = useContext(AuthContext);
 
   const [item, setItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,14 +24,14 @@ const ItemDetails = () => {
 
   //   fetch item by id
   const fetchItem = async () => {
-    setLoading(true)
+    setLoading(true);
     const { data } = await axios.get(`http://localhost:5000/items/${id}`);
     setItem(data);
   };
 
   useEffect(() => {
     fetchItem();
-    setLoading(false)
+    setLoading(false);
   }, [id]);
 
   //   handle modal form
@@ -54,18 +55,26 @@ const ItemDetails = () => {
 
       // Reset the form
       Swal.fire("Item added successfully!");
-    } 
-    catch (error) {
+    } catch (error) {
       console.error(error);
       Swal.fire("Failed to add the item.");
     }
 
     closeModal();
-    fetchItem()
+    fetchItem();
   };
 
   return (
     <div>
+      <Helmet>
+        <title>Item Details - Bring It Back</title>
+        <meta
+          name="description"
+          content="Welcome to the item details of My Website"
+        />
+        <meta name="keywords" content="React, Helmet, SEO, Example" />
+      </Helmet>
+
       <div className="hero bg-white shadow-2xl  py-16 w-10/12 mx-auto rounded-2xl my-10">
         <div className="hero-content gap-10 flex-col lg:flex-row">
           <img
@@ -75,7 +84,7 @@ const ItemDetails = () => {
           <div className="w-8/12">
             {/* title */}
             <h1 className="text-4xl font-bold mb-3">{item?.title}</h1>
-            
+
             {/* category */}
             <div className="space-y-2">
               <p>
@@ -100,7 +109,7 @@ const ItemDetails = () => {
               <span className="font-semibold">Description :</span>{" "}
               {item?.description}
             </p>
-  
+
             {/* showing a message conditionally */}
             {item?.status === "recovered" ? (
               <p className="text-cyan-600 font-bold text-xl">
@@ -119,7 +128,6 @@ const ItemDetails = () => {
             >
               {item?.postType === "Lost" ? "Found This!" : "This is Mine!"}
             </button>
-
           </div>
         </div>
       </div>

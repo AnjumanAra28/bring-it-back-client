@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Slide = ({ image, text }) => {
   return (
@@ -15,12 +16,23 @@ const Slide = ({ image, text }) => {
             {text}
           </h1>
           <br />
-          <Link
-            to="/add-job"
-            className="px-5 py-4 font-semibold outline-none text-sm text-white  bg-cyan-700 rounded-lg"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)",
+            }}
+            whileTap={{ scale: 0.95 }}
           >
-            Report Lost Or Found
-          </Link>
+            <Link
+              to="/add-job"
+              className="px-5 py-4 font-semibold outline-none text-sm text-white  bg-cyan-700 rounded-lg"
+            >
+              Report Lost Or Found
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>
