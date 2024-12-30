@@ -6,10 +6,11 @@ import { CiEdit } from "react-icons/ci";
 import Swal from "sweetalert2";
 
 const MyItems = () => {
-  const { user } = useContext(AuthContext);
+  const { user , loading,setLoading } = useContext(AuthContext);
   const [myItems, setMyItems] = useState([]);
 
   const fetchMyItems = async () => {
+    setLoading(true)
     const { data } = await axios.get(
       `http://localhost:5000/allItems/${user?.email}`
     );
@@ -18,6 +19,7 @@ const MyItems = () => {
 
   useEffect(() => {
     fetchMyItems();
+    setLoading(false)
   }, [user?.email]);
 
   // delete item

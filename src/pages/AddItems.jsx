@@ -8,10 +8,11 @@ import Swal from "sweetalert2";
 
 const AddItems = () => {
   const navigate = useNavigate();
-  const { user ,setLoading } = useContext(AuthContext);
+  const { user ,loading,setLoading } = useContext(AuthContext);
   const [date, setDate] = useState(new Date());
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
@@ -35,8 +36,10 @@ const AddItems = () => {
 
     try {
       await axios.post(`http://localhost:5000/addItems`, itemData);
+      setLoading(false)
       // Reset the form
       form.reset();
+
       Swal.fire("Item added successfully!");
     } 
     catch (error) {

@@ -11,7 +11,7 @@ Modal.setAppElement("#root");
 
 const ItemDetails = () => {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user,loading,setLoading } = useContext(AuthContext);
 
   const [item, setItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,12 +23,14 @@ const ItemDetails = () => {
 
   //   fetch item by id
   const fetchItem = async () => {
+    setLoading(true)
     const { data } = await axios.get(`http://localhost:5000/items/${id}`);
     setItem(data);
   };
 
   useEffect(() => {
     fetchItem();
+    setLoading(false)
   }, [id]);
 
   //   handle modal form
