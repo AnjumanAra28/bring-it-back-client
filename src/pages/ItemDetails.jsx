@@ -52,7 +52,8 @@ const ItemDetails = () => {
 
       // Reset the form
       Swal.fire("Item added successfully!");
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       Swal.fire("Failed to add the item.");
     }
@@ -72,21 +73,27 @@ const ItemDetails = () => {
           <div className="w-8/12">
             {/* title */}
             <h1 className="text-4xl font-bold mb-3">{item?.title}</h1>
-
+            
+            {/* category */}
             <div className="space-y-2">
               <p>
                 <span className="font-semibold">Category :</span>{" "}
                 {item?.category}
               </p>
+
+              {/* post type */}
               <p>
                 <span className="font-semibold">Post Type :</span>{" "}
                 {item?.postType}
               </p>
+              {/* location */}
               <p>
                 <span className="font-semibold">Location :</span>{" "}
                 {item?.location}
               </p>
             </div>
+
+            {/* description */}
             <p className=" text-gray-700 my-3">
               <span className="font-semibold">Description :</span>{" "}
               {item?.description}

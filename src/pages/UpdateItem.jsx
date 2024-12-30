@@ -35,6 +35,7 @@ const UpdateItem = () => {
     const location = form.location.value;
     const postType = form.postType.value;
     const thumbnail = form.thumbnail.value;
+    const status = form.status.value;
 
     const itemData = {
       title,
@@ -46,6 +47,7 @@ const UpdateItem = () => {
       email: user?.email,
       displayName: user?.displayName,
       thumbnail,
+      status
     };
 
     try {
@@ -54,6 +56,7 @@ const UpdateItem = () => {
       // Reset the form
       form.reset();
       Swal.fire("Item updated successfully!");
+      fetchItem()
     } catch (error) {
       console.error(error);
       Swal.fire("Failed to update the item.");
@@ -154,7 +157,8 @@ const UpdateItem = () => {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
-
+            
+        {/* thumbnail */}
             <div>
               <label className="text-gray-700" htmlFor="thumbnail">
                 Thumbnail

@@ -95,10 +95,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to={"/lostAndFound"}>Lost & Found Items</Link>
+                <Link to={"/allItems"}>Lost & Found Items</Link>
               </li>
               <li>
-                <Link to={"/allRecoveredItems"}>All Recovered Items</Link>
+                <Link to={"/recoveredItems"}>All Recovered Items</Link>
               </li>
               <li>
                 <Link to={`/myItems/${user?.email}`}>Manage My Items</Link>

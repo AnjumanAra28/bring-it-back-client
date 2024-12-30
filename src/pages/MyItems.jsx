@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 const MyItems = () => {
   const { user } = useContext(AuthContext);
-
   const [myItems, setMyItems] = useState([]);
 
   const fetchMyItems = async () => {
@@ -21,6 +20,7 @@ const MyItems = () => {
     fetchMyItems();
   }, [user?.email]);
 
+  // delete item
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/allItems/${_id}`, {
       method: "DELETE",
@@ -97,4 +97,4 @@ const MyItems = () => {
 };
 
 export default MyItems;
-// to={`/updateCampaign/${item._id}`}
+
