@@ -7,7 +7,7 @@ const LatestItems = () => {
   const [latestItems, setLatestItems] = useState([]);
 
   const fetchAllItems = async () => {
-    const { data } = await axios.get(`http://localhost:5000/items`);
+    const { data } = await axios.get(`https://bring-it-back-server.vercel.app/items`);
     setLatestItems(data);
   };
 

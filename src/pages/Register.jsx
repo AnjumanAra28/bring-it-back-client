@@ -42,7 +42,7 @@ const Register = () => {
 
         const newUser = { name, email, photo };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://bring-it-back-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

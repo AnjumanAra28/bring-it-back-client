@@ -8,7 +8,7 @@ const Reviews = () => {
 
   const fetchMyItems = async () => {
     setLoading(true);
-    const { data } = await axios.get(`http://localhost:5000/reviews`);
+    const { data } = await axios.get(`https://bring-it-back-server.vercel.app/reviews`);
     setReviewsData(data);
   };
 

@@ -25,7 +25,7 @@ const ItemDetails = () => {
   //   fetch item by id
   const fetchItem = async () => {
     setLoading(true);
-    const { data } = await axios.get(`http://localhost:5000/items/${id} `,{withCredentials:true});
+    const { data } = await axios.get(`https://bring-it-back-server.vercel.app/items/${id} `,{withCredentials:true});
     setItem(data);
   };
 
@@ -51,7 +51,7 @@ const ItemDetails = () => {
 
     // handle modal form data
     try {
-      await axios.post(`http://localhost:5000/recoveredItem`, formData);
+      await axios.post(`https://bring-it-back-server.vercel.app/recoveredItem`, formData);
 
       // Reset the form
       Swal.fire("Item added successfully!");

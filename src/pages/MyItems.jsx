@@ -13,7 +13,7 @@ const MyItems = () => {
   const fetchMyItems = async () => {
     setLoading(true);
     const { data } = await axios.get(
-      `http://localhost:5000/myItems/${user?.email}`,{withCredentials:true}
+      `https://bring-it-back-server.vercel.app/myItems/${user?.email}`,{withCredentials:true}
     );
     setMyItems(data);
   };
@@ -25,7 +25,7 @@ const MyItems = () => {
 
   // delete item
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/allItems/${_id}`, {
+    fetch(`https://bring-it-back-server.vercel.app/allItems/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

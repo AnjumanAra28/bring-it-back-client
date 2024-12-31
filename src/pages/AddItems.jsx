@@ -36,7 +36,7 @@ const AddItems = () => {
     };
 
     try {
-      await axios.post(`http://localhost:5000/addItems`, itemData , {withCredentials:true});
+      await axios.post(`https://bring-it-back-server.vercel.app/addItems`, itemData , {withCredentials:true});
       // Reset the form
       form.reset();
 

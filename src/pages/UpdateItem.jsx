@@ -15,7 +15,7 @@ const UpdateItem = () => {
 
   //   fetch item by id
   const fetchItem = async () => {
-    const { data } = await axios.get(`http://localhost:5000/updateItem/${id}`,{withCredentials:true});
+    const { data } = await axios.get(`https://bring-it-back-server.vercel.app/updateItem/${id}`,{withCredentials:true});
     setItem(data);
 
     if (data.date) {
@@ -52,7 +52,7 @@ const UpdateItem = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/updateItem/${id}`, itemData, { withCredentials: true });
+      await axios.put(`https://bring-it-back-server.vercel.app/updateItem/${id}`, itemData, { withCredentials: true });
 
       // Reset the form
       form.reset();
