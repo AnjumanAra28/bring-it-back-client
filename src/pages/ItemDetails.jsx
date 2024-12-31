@@ -51,7 +51,7 @@ const ItemDetails = () => {
 
     // handle modal form data
     try {
-      await axios.post(`http://localhost:5000/recoveredItem`, formData);
+      await axios.post(`http://localhost:5000/recoveredItem`, formData, { withCredentials: true });
 
       // Reset the form
       Swal.fire("Item added successfully!");

@@ -52,7 +52,7 @@ const UpdateItem = () => {
     };
 
     try {
-      await axios.put(`http://localhost:5000/updateItem/${id}`, itemData);
+      await axios.put(`http://localhost:5000/updateItem/${id}`, itemData, { withCredentials: true });
 
       // Reset the form
       form.reset();

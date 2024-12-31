@@ -9,7 +9,7 @@ const RecoveredItems = () => {
 
   const fetchRecoveredItems = async () => {
     setLoading(true);
-    const { data } = await axios.get(`http://localhost:5000/recoveredItems`);
+    const { data } = await axios.get(`http://localhost:5000/recoveredItems`, { withCredentials: true });
     setRecoveredItems(data);
   };
 
