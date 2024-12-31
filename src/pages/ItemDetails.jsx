@@ -25,7 +25,7 @@ const ItemDetails = () => {
   //   fetch item by id
   const fetchItem = async () => {
     setLoading(true);
-    const { data } = await axios.get(`http://localhost:5000/items/${id}`);
+    const { data } = await axios.get(`http://localhost:5000/items/${id} `,{withCredentials:true});
     setItem(data);
   };
 
@@ -51,7 +51,7 @@ const ItemDetails = () => {
 
     // handle modal form data
     try {
-      await axios.post(`http://localhost:5000/recoveredItem`, formData, { withCredentials: true });
+      await axios.post(`http://localhost:5000/recoveredItem`, formData);
 
       // Reset the form
       Swal.fire("Item added successfully!");

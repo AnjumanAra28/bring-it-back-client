@@ -13,7 +13,7 @@ const MyItems = () => {
   const fetchMyItems = async () => {
     setLoading(true);
     const { data } = await axios.get(
-      `http://localhost:5000/allItems/${user?.email}, { withCredentials: true }`
+      `http://localhost:5000/myItems/${user?.email}`,{withCredentials:true}
     );
     setMyItems(data);
   };

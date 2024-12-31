@@ -10,12 +10,12 @@ import { Helmet } from "react-helmet";
 const UpdateItem = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const [date, setDate] = useState(new Date());
 
   //   fetch item by id
   const fetchItem = async () => {
-    const { data } = await axios.get(`http://localhost:5000/updateItem/${id}`);
+    const { data } = await axios.get(`http://localhost:5000/updateItem/${id}`,{withCredentials:true});
     setItem(data);
 
     if (data.date) {
