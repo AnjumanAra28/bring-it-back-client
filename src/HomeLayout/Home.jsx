@@ -19,8 +19,8 @@ const Home = () => {
 
       <Carousel></Carousel>
       <LatestItems></LatestItems>
-      <Reviews></Reviews>
       <NewsUpdates></NewsUpdates>
+      <Reviews></Reviews>
     </div>
   );
 };
