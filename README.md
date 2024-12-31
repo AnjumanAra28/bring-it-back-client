@@ -10,9 +10,10 @@ The purpose of this project is to create a user-friendly platform that simplifie
 - Solve practical problems using code
 - Deliver top-quality, professional-grade work
 
-## Live Demo
+## Live Demo -- "https://bring-it-back-1534d.firebaseapp.com" , --"https://bring-it-back-1534d.web.app"
+            
 
-[Visit the Live Website](#)
+
 
 ## Key Features
 

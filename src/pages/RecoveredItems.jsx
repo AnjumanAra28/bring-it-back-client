@@ -15,7 +15,6 @@ const RecoveredItems = () => {
       withCredentials: true,
     });
     setRecoveredItems(data);
-    console.log(data[0].formData.recoveredLocation);
   };
 
   useEffect(() => {
