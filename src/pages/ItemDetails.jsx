@@ -77,10 +77,6 @@ const ItemDetails = () => {
 
       <div className="hero bg-white shadow-2xl  py-16 w-10/12 mx-auto rounded-2xl my-10">
         <div className="hero-content gap-10 flex-col lg:flex-row">
-          <img
-            src={item?.thumbnail}
-            className="max-w-sm rounded-lg shadow-2xl"
-          />
           <div className="w-8/12">
             {/* title */}
             <h1 className="text-4xl font-bold mb-3">{item?.title}</h1>

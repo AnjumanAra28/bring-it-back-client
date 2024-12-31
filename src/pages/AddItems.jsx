@@ -36,8 +36,7 @@ const AddItems = () => {
     };
 
     try {
-      await axios.post(`http://localhost:5000/addItems`, itemData);
-      setLoading(false);
+      await axios.post(`http://localhost:5000/addItems`, itemData , {withCredentials:true});
       // Reset the form
       form.reset();
 
@@ -45,6 +44,9 @@ const AddItems = () => {
     } catch (error) {
       console.error(error);
       Swal.fire("Failed to add the item.");
+    }
+    finally{
+      setLoading(false);
     }
   };
 
