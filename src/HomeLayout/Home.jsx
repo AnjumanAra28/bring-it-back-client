@@ -2,6 +2,8 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import LatestItems from "../pages/LatestItems";
 import { Helmet } from "react-helmet";
+import Reviews from "../pages/Reviews";
+import NewsUpdates from "../pages/NewsUpdates";
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
 
       <Carousel></Carousel>
       <LatestItems></LatestItems>
+      <Reviews></Reviews>
+      <NewsUpdates></NewsUpdates>
     </div>
   );
 };
