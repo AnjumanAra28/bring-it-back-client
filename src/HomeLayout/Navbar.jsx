@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-black text-white fixed z-50 bg-opacity-40 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,7 +73,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <Link to={"/"} className="btn btn-ghost text-2xl text-cyan-600">
+          <Link to={"/"} className="btn btn-ghost text-2xl">
             Bring It Back
           </Link>
         </motion.div>

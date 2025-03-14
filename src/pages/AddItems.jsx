@@ -51,7 +51,7 @@ const AddItems = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen my-12 max-w-screen-md mx-auto">
+    <div className="flex justify-center items-center min-h-screen  max-w-screen-md mx-auto pt-[90px]">
       <Helmet>
         <title>Add Items - Bring It Back</title>
         <meta

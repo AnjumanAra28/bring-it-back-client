@@ -42,23 +42,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-
-      if(currentUser?.email){
-        const user = {email: currentUser.email}
-
-        axios.post('https://bring-it-back-server.vercel.app/jwt',user,{withCredentials:true})
-        .then(res=>{
-          setLoading(false);
-        })
-      }else{
-        axios.post('https://bring-it-back-server.vercel.app/logout',{},{
-          withCredentials:true
-        })
-      .then(res=>{
-        console.log('logout',res.data)
-        setLoading(false)
-      })
-      }
     });
 
     return () => unSubscribe();

@@ -4,7 +4,7 @@ import cardNews2 from "../assets/cardNews2.jpg";
 
 const NewsUpdates = () => {
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       <section className=" text-center">
         <h2 className="text-3xl font-semibold text-gray-800 mb-8">
           Latest News & Updates

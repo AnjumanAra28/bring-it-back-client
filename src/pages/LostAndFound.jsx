@@ -4,16 +4,18 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Helmet } from "react-helmet";
+import Loading from "./Loading";
 
 const LostAndFound = () => {
-  const { loading, setLoading } = useContext(AuthContext);
+  // const { loading, setLoading } = useContext(AuthContext);
   const [allItems, setAllItems] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading,setLoading] = useState(false)
 
   useEffect(() => {
     const fetchAllItems = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
         const { data } = await axios.get(
           `https://bring-it-back-server.vercel.app/allItems?search=${search}`
         );
@@ -28,12 +30,16 @@ const LostAndFound = () => {
     fetchAllItems();
   }, [search]);
 
+  if(loading){
+    return <Loading></Loading>
+  }
+
   const handleReset =()=>{
     setSearch('')
   }
 
   return (
-    <div>
+    <div className="pt-[68px] w-11/12 mx-auto">
       <Helmet>
         <title>All Items - Bring It Back</title>
         <meta

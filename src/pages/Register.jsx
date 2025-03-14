@@ -39,7 +39,7 @@ const Register = () => {
         setUser(result.user);
         updateUserProfile({ displayName: name, photoURL: photo });
         form.reset();
-
+        console.log(result);
         const newUser = { name, email, photo };
 
         fetch("https://bring-it-back-server.vercel.app/users", {

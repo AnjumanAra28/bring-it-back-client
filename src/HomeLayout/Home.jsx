@@ -16,8 +16,7 @@ const Home = () => {
         />
         <meta name="keywords" content="React, Helmet, SEO, Example" />
       </Helmet>
-
-      <Carousel></Carousel>
+      <Carousel></Carousel>  
       <LatestItems></LatestItems>
       <NewsUpdates></NewsUpdates>
       <Reviews></Reviews>

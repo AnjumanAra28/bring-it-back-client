@@ -13,7 +13,7 @@ import Slide from "./Slide";
 
 const Carousel = () => {
   return (
-    <div>
+    <div className="pt-[68px]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

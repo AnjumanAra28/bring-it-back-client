@@ -27,7 +27,9 @@ const ItemDetails = () => {
     setLoading(true);
     const { data } = await axios.get(`https://bring-it-back-server.vercel.app/items/${id} `,{withCredentials:true});
     setItem(data);
+    console.log(data);
   };
+
 
   useEffect(() => {
     fetchItem();
@@ -65,7 +67,7 @@ const ItemDetails = () => {
   };
 
   return (
-    <div>
+    <div className="pt-[75px]">
       <Helmet>
         <title>Item Details - Bring It Back</title>
         <meta
