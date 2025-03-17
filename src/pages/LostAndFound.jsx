@@ -17,7 +17,7 @@ const LostAndFound = () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `https://bring-it-back-server.vercel.app/allItems?search=${search}`
+          `http://localhost:5000/allItems?search=${search}`
         );
         setAllItems(data);
       } catch (error) {

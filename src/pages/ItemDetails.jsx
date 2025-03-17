@@ -12,28 +12,43 @@ Modal.setAppElement("#root");
 
 const ItemDetails = () => {
   const { id } = useParams();
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext)
 
   const [item, setItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [recoveredDate, setRecoveredDate] = useState(new Date());
   const [recoveredLocation, setRecoveredLocation] = useState("");
+  const [loading,setLoading] = useState(false)
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   //   fetch item by id
   const fetchItem = async () => {
-    setLoading(true);
-    const { data } = await axios.get(`https://bring-it-back-server.vercel.app/items/${id} `,{withCredentials:true});
-    setItem(data);
-    console.log(data);
+    try{
+      setLoading(true);
+      const { data } = await axios.get(`http://localhost:5000/items/${id}`,{withCredentials:true});
+
+      if(data){
+        setItem(data)
+      }
+      else {
+        console.error('no data received')
+      }
+    }
+    catch (error){
+        console.log('error fetching item',error)
+    }
+    finally{
+      setLoading(false)
+    }
   };
 
-
   useEffect(() => {
-    fetchItem();
-    setLoading(false);
+    if(user && id){
+      fetchItem();
+    }
+    setLoading(false)
   }, [id]);
 
   //   handle modal form

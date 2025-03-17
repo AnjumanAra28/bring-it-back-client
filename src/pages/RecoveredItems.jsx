@@ -6,7 +6,7 @@ import { TfiLayoutGrid3Alt, TfiLayoutListPost } from "react-icons/tfi";
 
 const RecoveredItems = () => {
   const [recoveredItems, setRecoveredItems] = useState([]);
-  const { loading, setLoading } = useContext(AuthContext);
+  const [ loading, setLoading ] = useState(false)
   const [tableLayout, setTableLayout] = useState(true);
 
   const fetchRecoveredItems = async () => {
@@ -23,10 +23,10 @@ const RecoveredItems = () => {
   }, []);
 
   if (recoveredItems.length === 0) {
-    return <p>No items to show</p>;
+    return <p className="pt-24 text-xl font-semibold text-center">No items to show</p>;
   }
   return (
-    <div className="my-10">
+    <div className="my-10 ">
       <div className="flex gap-2 justify-end">
         <button
           className="mb-4 px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700"

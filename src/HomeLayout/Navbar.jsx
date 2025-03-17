@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black"
           >
             {links}
           </ul>
@@ -73,7 +73,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <Link to={"/"} className="btn btn-ghost text-2xl">
+          <Link to={"/"} className="btn btn-ghost text-lg ml-0 md:text-2xl ">
             Bring It Back
           </Link>
         </motion.div>
@@ -97,7 +97,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow  text-black"
               >
                 <li>
                   <Link to={"/allItems"}>Lost & Found Items</Link>

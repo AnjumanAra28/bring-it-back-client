@@ -27,7 +27,7 @@ const Slide = ({ image, text }) => {
             whileTap={{ scale: 0.95 }}
           >
             <Link
-              to="/add-job"
+              to="/addItems"
               className="px-5 py-4 font-semibold outline-none text-sm text-white  bg-cyan-700 rounded-lg"
             >
               Report Lost Or Found

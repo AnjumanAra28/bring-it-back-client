@@ -51,7 +51,7 @@ const AddItems = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen  max-w-screen-md mx-auto pt-[90px]">
+    <div className="flex justify-center items-center min-h-screen mb-12 max-w-screen-md mx-auto pt-[96px]">
       <Helmet>
         <title>Add Items - Bring It Back</title>
         <meta
@@ -200,13 +200,3 @@ const AddItems = () => {
 };
 
 export default AddItems;
-
-
-// https://ibb.co/MVdNT7S - puppy
-// https://ibb.co/Ykm9g4V - air pod
-// https://ibb.co/pPfRq8F - wallet
-// https://ibb.co/z5W0nb3 - phone
-// https://ibb.co/prjt9jW - keys
-// https://ibb.co/Hpyk4BP - bag
-// https://ibb.co/q9jsQsG - glasses
-// https://ibb.co/vd3BrwN - cat

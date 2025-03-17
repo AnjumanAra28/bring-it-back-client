@@ -23,14 +23,6 @@ const router = createBrowserRouter([
                 element:<Home></Home>
             },
             {
-                path:'/login',
-                element:<Login></Login>
-            },
-            {
-                path:'/register',
-                element:<Register></Register>
-            },
-            {
                 path:'/addItems',
                 element:<PrivateRoutes><AddItems></AddItems></PrivateRoutes>
             },
@@ -55,7 +47,15 @@ const router = createBrowserRouter([
                 element:<PrivateRoutes><RecoveredItems></RecoveredItems></PrivateRoutes>
             },      
         ]
-    }
+    },
+    {
+        path:'/login',
+        element:<Login></Login>
+    },
+    {
+        path:'/register',
+        element:<Register></Register>
+    },
 ])
 
 export default router;

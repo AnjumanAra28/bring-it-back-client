@@ -55,7 +55,7 @@ const MyItems = () => {
   };
 
   return (
-    <div className="w-full mx-3 lg:w-10/12  lg:mx-auto">
+    <div className="w-full mx-3 lg:w-10/12  lg:mx-auto pt-14">
       <Helmet>
         <title>My Items - Bring It Back</title>
         <meta
